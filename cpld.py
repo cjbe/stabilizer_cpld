@@ -7,16 +7,16 @@ _io = [
 
         # "spi" are the buses from the CPU
         ("spi", 0, # SPI1R on schematic
-            Subsignal("mosi", Pins("P1")),
+            Subsignal("mosi", Pins("P19")),
             Subsignal("miso", Pins("P2")),
             Subsignal("nss", Pins("P3")),
-            Subsignal("clk", Pins("P5"))),
+            Subsignal("clk", Pins("P44"))),
 
         ("spi", 1, # SPI2R on schematic
             Subsignal("mosi", Pins("P40")),
             Subsignal("miso", Pins("P39")),
             Subsignal("nss", Pins("P20")),
-            Subsignal("clk", Pins("P19"))),
+            Subsignal("clk", Pins("P1"))),
 
         ("spi", 2, # SPI4R on schematic
             Subsignal("mosi", Pins("P14")),
@@ -25,8 +25,7 @@ _io = [
             Subsignal("clk", Pins("P8"))),
 
         ("spi", 3, # SPI5R on schematic
-            Subsignal("mosi", Pins("P40")),
-            Subsignal("miso", Pins("P44")),
+            Subsignal("mosi", Pins("P5")),
             Subsignal("nss", Pins("P41")),
             Subsignal("clk", Pins("P42"))),
 
@@ -61,7 +60,7 @@ _io = [
 
 class Platform(XilinxPlatform):
     def __init__(self):
-        XilinxPlatform.__init__(self, "xc2c32a-6-vq44", _io)
+        XilinxPlatform.__init__(self, "xc2c64a-7-vq44", _io)
         self.toolchain.xst_opt = "-ifmt MIXED"
         self.toolchain.par_opt = ("-optimize speed -unused pullup "
                 "-iostd LVCMOS33")
